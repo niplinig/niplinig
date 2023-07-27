@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-
 import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
