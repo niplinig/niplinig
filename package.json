@@ -10,9 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/alpinejs": "^0.2.2",
     "@astrojs/mdx": "^0.19.7",
     "@astrojs/rss": "^2.4.3",
     "@astrojs/sitemap": "^2.0.1",
+    "@types/alpinejs": "^3.7.2",
+    "alpinejs": "^3.12.3",
     "astro": "^2.9.3"
   }
 }

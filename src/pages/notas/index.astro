@@ -1,0 +1,38 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const posts = (await getCollection("notas")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<!DOCTYPE html>
+<html lang="ec-es">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      {
+        posts.map((post) => (
+          <article>
+            <a href={`/notas/${post.slug}/`}>
+              <img width={720} height={360} src={post.data.heroImage} alt="" />
+              <h4>{post.data.title}</h4>
+              <p>
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+            </a>
+          </article>
+        ))
+      }
+    </main>
+    <Footer />
+  </body>
+</html>
